@@ -1,0 +1,35 @@
+****************************************************************************************************
+Processing step 8 of 8
+codegen: codegen: Generate "C++" source code from the compiled model
+Adding buffer: PrimaryTensorArena: size=59.6k section=.bss
+Adding buffer: PagingBuffer: size=32.0k section=.bss
+Adding "const" keyword to model data variable since it's in the .rodata data section
+Destination directory=C:/Users/tharu/AppData/Local/Temp/apack_aiml.mvp-compiler17802805149834823455/data/tflite/temp_f19a69236a864f54a4820a3caf280d40/codegen
+Cleaning destination directory=C:/Users/tharu/AppData/Local/Temp/apack_aiml.mvp-compiler17802805149834823455/data/tflite/temp_f19a69236a864f54a4820a3caf280d40/codegen
+Including the following manifest sections:
+accelerators.cmsis.kernels.impl.fully_connected
+accelerators.mvpv1.core
+accelerators.mvpv1.kernels.fallback.fully_connected
+accelerators.mvpv1.kernels.impl.add
+accelerators.mvpv1.kernels.impl.average_pool_2d
+accelerators.mvpv1.kernels.impl.conv_2d
+accelerators.mvpv1.kernels.impl.depthwise_conv_2d
+accelerators.mvpv1.kernels.impl.fully_connected
+accelerators.sw_ref.kernels.impl.reshape
+accelerators.sw_ref.kernels.impl.softmax
+core
+core.compiled_model
+core.flatbuffers
+core.gemmlowp
+core.half
+core.ruy
+core.tflite_micro_model
+core.tflm
+core.utils
+features.cmsis_nn
+platforms.siwg917.core
+Stripped 22.5k of strings from the .tflite model
+Generated C:/Users/tharu/AppData/Local/Temp/apack_aiml.mvp-compiler17802805149834823455/data/tflite/temp_f19a69236a864f54a4820a3caf280d40/codegen/keyword_spotting_on_off_v3_generated.hpp
+from C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\data\tflite\keyword_spotting_on_off_v3.tflite
+Generated C:/Users/tharu/AppData/Local/Temp/apack_aiml.mvp-compiler17802805149834823455/data/tflite/temp_f19a69236a864f54a4820a3caf280d40/codegen/keyword_spotting_on_off_v3_generated_parameters.h
+Finished processing step 8 of 8 in 1.84 seconds

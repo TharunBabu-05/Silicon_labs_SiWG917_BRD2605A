@@ -1,0 +1,21 @@
+# Simplicity Studio and local editor state
+.codex/
+.dist/
+.projectlinkstore
+.silabsExtContext
+.slc-explorer/
+.vscode/
+
+# Generated CMake and firmware artifacts
+cmake_gcc/build/
+*.bin
+*.hex
+*.out
+*.rps
+*.s37
+
+# TinyDesk local build and tool state
+tinydesk/.codex/
+tinydesk/.dist/
+tinydesk/build/
+tinydesk/build-tls/

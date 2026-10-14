@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+TERMS OF USE - SILICON LABORATORIES INC.
+(With respect to Silicon Labs software components, this Software Bill of Materials (SBOM) is based upon Silicon Labs'
+review and analysis of the code version when released.  It is provided "AS IS" and does not modify, change or alter
+the terms or conditions of your use of Silicon Labs' software and/or SDKs based upon license terms and/or agreements
+associated with this software or SDKs when distributed to you, received by you, or installed by you.  Further, no
+warranties or obligations are created by this SBOM.  It is your obligation to comply with the terms of licenses
+referenced in this SBOM.)
+-->
+<bom xmlns="http://cyclonedx.org/schema/bom/1.6" version="1">
+  <metadata>
+    <timestamp>2026-10-14T06:16:12Z</timestamp>
+    <authors>
+      <author>
+        <name>Silicon Laboratories, Inc.</name>
+      </author>
+    </authors>
+  </metadata>
+  <components>
+    <component bom-ref="silabs.aiml:3.0.1" type="library">
+      <supplier>
+        <name>Silicon Laboratories Inc.</name>
+      </supplier>
+      <name>Silicon Labs AI/ML</name>
+      <version>3.0.1</version>
+      <components>
+        <component bom-ref="silabs.aiml:3.0.1:fe_audio" type="library">
+          <name>Audio Feature Generator</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib AND Apache-2.0</expression>
+          </licenses>
+          <pedigree>
+            <ancestors>
+              <component bom-ref="fe_audio:2.3.1" type="library">
+                <supplier>
+                  <name>The Tensorflow Authors</name>
+                </supplier>
+                <name>Microfrontend</name>
+                <version>2.3.1</version>
+                <purl>pkg:github/tensorflow/tensorflow@v2.3.1</purl>
+                <pedigree>
+                  <notes>Microfrontend library to process audio that lives within the tensorflow repo on GitHub, version 2.3.1</notes>
+                </pedigree>
+                <externalReferences>
+                  <reference type="website">
+                    <url>https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/microfrontend</url>
+                  </reference>
+                </externalReferences>
+              </component>
+            </ancestors>
+          </pedigree>
+        </component>
+        <component bom-ref="silabs.aiml:3.0.1:ml_model" type="library">
+          <name>ML Model</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.aiml:3.0.1:mic_driver_si91x" type="library">
+          <name>Microphone Driver for si91x ML applications</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.aiml:3.0.1:ml_cmsis_dsp_rfft_q15" type="library">
+          <name>cmsis_dsp_rfft</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Apache-2.0 AND Zlib</expression>
+          </licenses>
+          <pedigree>
+            <ancestors>
+              <component bom-ref="ml_cmsis_dsp_rfft_q15:1.15.0" type="library">
+                <supplier>
+                  <name>ARM-software</name>
+                </supplier>
+                <name>CMSIS-DSP</name>
+                <version>1.15.0</version>
+                <purl>pkg:github/ARM-software/CMSIS-DSP@v1.15.0</purl>
+                <pedigree>
+                  <notes>CMSIS DSP Library as packaged and released by ARM-software, version 1.15.0</notes>
+                </pedigree>
+                <externalReferences>
+                  <reference type="website">
+                    <url>https://github.com/ARM-software/CMSIS-DSP</url>
+                  </reference>
+                </externalReferences>
+              </component>
+            </ancestors>
+          </pedigree>
+        </component>
+        <component bom-ref="silabs.aiml:3.0.1:ml_compiler" type="library">
+          <name>ML Model Compiler</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.aiml:3.0.1:tflite-micro" type="library">
+          <name>TensorFlow Lite Micro</name>
+          <version>3.0.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Apache-2.0 AND MSLA</expression>
+          </licenses>
+          <pedigree>
+            <ancestors>
+              <component bom-ref="tflite-micro:f5c36ef2efa9886d58b91106e28ab268cc725398" type="library">
+                <supplier>
+                  <name>The Tensorflow Authors</name>
+                </supplier>
+                <name>Tensorflow Lite for Microcontrollers</name>
+                <version>f5c36ef2efa9886d58b91106e28ab268cc725398</version>
+                <purl>pkg:github/tensorflow/tflite-micro@f5c36ef2efa9886d58b91106e28ab268cc725398</purl>
+                <pedigree>
+                  <notes>Tensorflow Lite for Microcontrollers library as it was on GitHub, at commit hash f5c36ef2efa9886d58b91106e28ab268cc725398</notes>
+                </pedigree>
+                <externalReferences>
+                  <reference type="website">
+                    <url>https://github.com/tensorflow/tflite-micro</url>
+                  </reference>
+                </externalReferences>
+              </component>
+            </ancestors>
+          </pedigree>
+        </component>
+      </components>
+    </component>
+    <component bom-ref="silabs.simplicity_sdk:2026.6.1" type="library">
+      <supplier>
+        <name>Silicon Laboratories, Inc.</name>
+      </supplier>
+      <name>Simplicity SDK Suite</name>
+      <version>2026.6.1</version>
+      <components>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:cmsis_dsp" type="library">
+          <name>CMSIS-DSP</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Apache-2.0</expression>
+          </licenses>
+          <pedigree>
+            <ancestors>
+              <component bom-ref="cmsis_dsp:1.16.2" type="library">
+                <supplier>
+                  <name>ARM-software</name>
+                </supplier>
+                <name>CMSIS-DSP</name>
+                <version>1.16.2</version>
+                <purl>pkg:github/ARM-software/CMSIS-DSP@v1.16.2</purl>
+                <pedigree>
+                  <notes>CMSIS DSP Library as packaged and released by ARM-software, version 1.16.2</notes>
+                </pedigree>
+                <externalReferences>
+                  <reference type="website">
+                    <url>https://github.com/ARM-software/CMSIS-DSP</url>
+                  </reference>
+                </externalReferences>
+              </component>
+            </ancestors>
+          </pedigree>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:cpp_support" type="library">
+          <name>Toolchain: C++ Support</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:emlib_common" type="library">
+          <name>Common Headers</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_main" type="library">
+          <name>System Setup (sl_main)</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:agents_md" type="library">
+          <name>AGENTS.md</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:atomic" type="library">
+          <name>Atomic Operations Library</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:cmsis_core" type="library">
+          <name>CMSIS-Core</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Apache 2.0</expression>
+          </licenses>
+          <pedigree>
+            <ancestors>
+              <component bom-ref="cmsis_core:6.2.0" type="library">
+                <supplier>
+                  <name>ARM-software</name>
+                </supplier>
+                <name>CMSIS_6</name>
+                <version>6.2.0</version>
+                <purl>pkg:github/ARM-software/CMSIS_6@6.2.0</purl>
+                <pedigree>
+                  <notes>The CMSIS is a set of tools, APIs, frameworks, and work flows</notes>
+                </pedigree>
+                <externalReferences>
+                  <reference type="website">
+                    <url>https://github.com/ARM-software/CMSIS_6</url>
+                  </reference>
+                </externalReferences>
+              </component>
+            </ancestors>
+          </pedigree>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:code_classification" type="library">
+          <name>Code Classification</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:component_catalog" type="library">
+          <name>Component Catalog</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:event_handler" type="library">
+          <name>Event Handler</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:log_none" type="library">
+          <name>Log None</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_assert" type="library">
+          <name>Assert Functions</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_common" type="library">
+          <name>Common Functions</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_core" type="library">
+          <name>core</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_main_init" type="library">
+          <name>sl main Init</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_main_memory_init" type="library">
+          <name>sl_main Setup</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sl_main_process_action" type="library">
+          <name>sl_main Process Action</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sleeptimer" type="library">
+          <name>Sleep Timer</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:sleeptimer_cortexm" type="library">
+          <name>Sleep Timer Cortex-M Architecture Support</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:status" type="library">
+          <name>Status Codes Definitions</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.simplicity_sdk:2026.6.1:toolchain_variant_arm" type="library">
+          <name>Toolchain for ARM</name>
+          <version>2026.6.1</version>
+	      <supplier>
+	        <name>Silicon Laboratories, Inc.</name>
+	      </supplier>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+      </components>
+    </component>
+    <component bom-ref="silabs.wiseconnect3_sdk:4.1.1" type="library">
+      <name>Wiseconnect</name>
+      <version>4.1.1</version>
+      <components>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:SIWG917M111MGTBA" type="library">
+          <name>SIWG917M111MGTBA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:brd2605a" type="library">
+          <name>BRD2605A</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:i2s_instance" type="library">
+          <name>I2S</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:psram_aps6404l_sqh" type="library">
+          <name>APS6404L_SQH PSRAM Device</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:psram_core" type="library">
+          <name>PSRAM Core</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_memory_default_config" type="library">
+          <name>Default RAM Memory Configuration</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_si91x_led_917" type="library">
+          <name>LED</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sleeptimer_si91x" type="library">
+          <name>Sleep Timer</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:syscalls" type="library">
+          <name>System Calls</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_psram_linker" type="library">
+          <name>Toolchain support for PSRAM Linker</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:board_configuration_headers" type="library">
+          <name>Board Configuration Header Files</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:brd2605a_config" type="library">
+          <name>brd2605a config</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_common_driver" type="library">
+          <name>CMSIS COMMON DRIVER</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_driver_headers" type="library">
+          <name>CMSIS Driver Header Files</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Apache-2.0</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_peripheral_headers" type="library">
+          <name>CMSIS Peripheral Header Files</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA AND Apache-2.0</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_sai" type="library">
+          <name>CMSIS SAI</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Apache-2.0 AND Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_udma" type="library">
+          <name>CMSIS UDMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA AND Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_usart" type="library">
+          <name>CMSIS USART</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Apache-2.0 AND Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:cmsis_usart_driver" type="library">
+          <name>CMSIS USART DRIVER</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:external_flash_none" type="library">
+          <name>No External Flash</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:external_psram_8mb" type="library">
+          <name>8MB PSRAM (External)</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:freertos_config" type="library">
+          <name>FreeRTOS Configuration</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MIT</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:opn_config" type="library">
+          <name>opn config</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_clks" type="library">
+          <name>ROM DRIVER CLOCK</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_crc" type="library">
+          <name>ROM DRIVER CRC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_egpio" type="library">
+          <name>ROM DRIVER EGPIO</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_gpdma" type="library">
+          <name>ROM DRIVER GPDMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_headers" type="library">
+          <name>ROM Driver Headers</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_packing" type="library">
+          <name>ROM DRIVER PACKING</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_qspi" type="library">
+          <name>ROM DRIVER QSPI</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_romtable" type="library">
+          <name>ROM TABLE</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_romtable_headers" type="library">
+          <name>ROM Table Header</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_timer" type="library">
+          <name>ROM DRIVER TIMER</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_udma" type="library">
+          <name>ROM DRIVER UDMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_udma_wrapper" type="library">
+          <name>ROM DRIVER UDMA WRAPPER</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:romdriver_ulpss" type="library">
+          <name>ROM DRIVER ULPSS</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_adc" type="library">
+          <name>ADC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_aux_reference_volt_config" type="library">
+          <name>AUX REFERENCE VOLT</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_board" type="library">
+          <name>SoC Board Configurations</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA AND Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_chip" type="library">
+          <name>Core</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_clock_update" type="library">
+          <name>CLOCK UPDATE</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_crc" type="library">
+          <name>CRC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_dac" type="library">
+          <name>DAC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_dcache" type="library">
+          <name>D_CACHE</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_egpio" type="library">
+          <name>EGPIO</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_gpdma" type="library">
+          <name>GPDMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_headers" type="library">
+          <name>RSI Peripheral Headers</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_i2s" type="library">
+          <name>I2S</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_opamp" type="library">
+          <name>OPAMP</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_qspi" type="library">
+          <name>QSPI</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_sysrtc" type="library">
+          <name>SYSRTC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_timers" type="library">
+          <name>TIMERS API</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_udma" type="library">
+          <name>UDMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_udma_wrapper" type="library">
+          <name>UDMA WRAPPER</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_usart" type="library">
+          <name>USART</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:rsilib_userconfig" type="library">
+          <name>RSI User Configuration</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_common_flash" type="library">
+          <name>Common Flash Component</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_debug" type="library">
+          <name>Debug Unit</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_device_init_nvic" type="library">
+          <name>NVIC Interrupt Priorities Configuration for FreeRTOS</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_log_none" type="library">
+          <name>Log None</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_mem_config_1" type="library">
+          <name>MEMORY_MCU_BASIC_WIRELESS_ADVANCED</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:si91x_stack_size_configuration" type="library">
+          <name>Stack Size Configuration</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_adc" type="library">
+          <name>ADC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_bjt_temperature_sensor" type="library">
+          <name>BJT Temperature Sensor</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_clock_manager" type="library">
+          <name>Clock Manager</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_dma" type="library">
+          <name>DMA</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_gpio" type="library">
+          <name>GPIO</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_gpio_peripheral" type="library">
+          <name>SL GPIO Peripheral</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_i2s" type="library">
+          <name>I2S</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_si91x_agents_md" type="library">
+          <name>AGENTS.md (Generative AI project context)</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:sl_si91x_mcu" type="library">
+          <name>MCU Subsystem</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>MSLA</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_bod" type="library">
+          <name>BOD</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_headers" type="library">
+          <name>System-Level API Headers</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_ipmu" type="library">
+          <name>IPMU</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_pll" type="library">
+          <name>PLL</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_reg_spi" type="library">
+          <name>REG SPI</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_rtc" type="library">
+          <name>RTC</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_temp_sensor" type="library">
+          <name>TEMPERATURE SENSOR</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_time_period" type="library">
+          <name>TIME PERIOD</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:systemlevel_ulpss_clk" type="library">
+          <name>ULPSS CLOCK</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:udma_linker_config" type="library">
+          <name>UDMA Linker Configuration</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_gcc_standard" type="library">
+          <name>GCC Toolchain Standard Linker</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+        <component bom-ref="silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_plugin" type="library">
+          <name>GCC Toolchain Support</name>
+          <version>4.1.1</version>
+          <licenses>
+            <expression>Zlib</expression>
+          </licenses>
+        </component>
+      </components>
+    </component>
+  </components>
+</bom>

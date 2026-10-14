@@ -1,0 +1,1214 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-10-14T06:16:12Z",
+    "authors" : [ {
+      "name" : "Silicon Laboratories, Inc."
+    } ],
+    "properties" : [ {
+      "name" : "Silicon Labs Disclaimer",
+      "value" : "TERMS OF USE - SILICON LABORATORIES INC.\n(With respect to Silicon Labs software components, this Software Bill of Materials (SBOM) is based upon Silicon Labs'\nreview and analysis of the code version when released.  It is provided \"AS IS\" and does not modify, change or alter\nthe terms or conditions of your use of Silicon Labs' software and/or SDKs based upon license terms and/or agreements\nassociated with this software or SDKs when distributed to you, received by you, or installed by you.  Further, no\nwarranties or obligations are created by this SBOM.  It is your obligation to comply with the terms of licenses\nreferenced in this SBOM.)"
+    } ]
+  },
+  "components" : [ {
+    "scope" : "required",
+    "type" : "library",
+    "bom-ref" : "silabs.aiml:3.0.1",
+    "name" : "Silicon Labs AI/ML",
+    "version" : "3.0.1",
+    "supplier" : {
+      "name" : "Silicon Laboratories Inc."
+    },
+    "components" : [ {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:fe_audio",
+      "name" : "Audio Feature Generator",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib AND Apache-2.0"
+      } ],
+      "pedigree" : {
+        "ancestors" : [ {
+          "scope" : "required",
+          "type" : "library",
+          "bom-ref" : "fe_audio:2.3.1",
+          "name" : "Microfrontend",
+          "version" : "2.3.1",
+          "supplier" : {
+            "name" : "The Tensorflow Authors"
+          },
+          "externalReferences" : [ {
+            "type" : "website",
+            "url" : "https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/microfrontend"
+          } ],
+          "purl" : "pkg:github/tensorflow/tensorflow@v2.3.1",
+          "pedigree" : {
+            "notes" : "Microfrontend library to process audio that lives within the tensorflow repo on GitHub, version 2.3.1"
+          }
+        } ]
+      }
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:ml_model",
+      "name" : "ML Model",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:mic_driver_si91x",
+      "name" : "Microphone Driver for si91x ML applications",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:ml_cmsis_dsp_rfft_q15",
+      "name" : "cmsis_dsp_rfft",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Apache-2.0 AND Zlib"
+      } ],
+      "pedigree" : {
+        "ancestors" : [ {
+          "scope" : "required",
+          "type" : "library",
+          "bom-ref" : "ml_cmsis_dsp_rfft_q15:1.15.0",
+          "name" : "CMSIS-DSP",
+          "version" : "1.15.0",
+          "supplier" : {
+            "name" : "ARM-software"
+          },
+          "externalReferences" : [ {
+            "type" : "website",
+            "url" : "https://github.com/ARM-software/CMSIS-DSP"
+          } ],
+          "purl" : "pkg:github/ARM-software/CMSIS-DSP@v1.15.0",
+          "pedigree" : {
+            "notes" : "CMSIS DSP Library as packaged and released by ARM-software, version 1.15.0"
+          }
+        } ]
+      }
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:ml_compiler",
+      "name" : "ML Model Compiler",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.aiml:3.0.1:tflite-micro",
+      "name" : "TensorFlow Lite Micro",
+      "version" : "3.0.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Apache-2.0 AND MSLA"
+      } ],
+      "pedigree" : {
+        "ancestors" : [ {
+          "scope" : "required",
+          "type" : "library",
+          "bom-ref" : "tflite-micro:f5c36ef2efa9886d58b91106e28ab268cc725398",
+          "name" : "Tensorflow Lite for Microcontrollers",
+          "version" : "f5c36ef2efa9886d58b91106e28ab268cc725398",
+          "supplier" : {
+            "name" : "The Tensorflow Authors"
+          },
+          "externalReferences" : [ {
+            "type" : "website",
+            "url" : "https://github.com/tensorflow/tflite-micro"
+          } ],
+          "purl" : "pkg:github/tensorflow/tflite-micro@f5c36ef2efa9886d58b91106e28ab268cc725398",
+          "pedigree" : {
+            "notes" : "Tensorflow Lite for Microcontrollers library as it was on GitHub, at commit hash f5c36ef2efa9886d58b91106e28ab268cc725398"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "scope" : "required",
+    "type" : "library",
+    "bom-ref" : "silabs.simplicity_sdk:2026.6.1",
+    "name" : "Simplicity SDK Suite",
+    "version" : "2026.6.1",
+    "supplier" : {
+      "name" : "Silicon Laboratories, Inc."
+    },
+    "components" : [ {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:cmsis_dsp",
+      "name" : "CMSIS-DSP",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Apache-2.0"
+      } ],
+      "pedigree" : {
+        "ancestors" : [ {
+          "scope" : "required",
+          "type" : "library",
+          "bom-ref" : "cmsis_dsp:1.16.2",
+          "name" : "CMSIS-DSP",
+          "version" : "1.16.2",
+          "supplier" : {
+            "name" : "ARM-software"
+          },
+          "externalReferences" : [ {
+            "type" : "website",
+            "url" : "https://github.com/ARM-software/CMSIS-DSP"
+          } ],
+          "purl" : "pkg:github/ARM-software/CMSIS-DSP@v1.16.2",
+          "pedigree" : {
+            "notes" : "CMSIS DSP Library as packaged and released by ARM-software, version 1.16.2"
+          }
+        } ]
+      }
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:cpp_support",
+      "name" : "Toolchain: C++ Support",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:emlib_common",
+      "name" : "Common Headers",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_main",
+      "name" : "System Setup (sl_main)",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:agents_md",
+      "name" : "AGENTS.md",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:atomic",
+      "name" : "Atomic Operations Library",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:cmsis_core",
+      "name" : "CMSIS-Core",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Apache 2.0"
+      } ],
+      "pedigree" : {
+        "ancestors" : [ {
+          "scope" : "required",
+          "type" : "library",
+          "bom-ref" : "cmsis_core:6.2.0",
+          "name" : "CMSIS_6",
+          "version" : "6.2.0",
+          "supplier" : {
+            "name" : "ARM-software"
+          },
+          "externalReferences" : [ {
+            "type" : "website",
+            "url" : "https://github.com/ARM-software/CMSIS_6"
+          } ],
+          "purl" : "pkg:github/ARM-software/CMSIS_6@6.2.0",
+          "pedigree" : {
+            "notes" : "The CMSIS is a set of tools, APIs, frameworks, and work flows"
+          }
+        } ]
+      }
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:code_classification",
+      "name" : "Code Classification",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:component_catalog",
+      "name" : "Component Catalog",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:event_handler",
+      "name" : "Event Handler",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:log_none",
+      "name" : "Log None",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_assert",
+      "name" : "Assert Functions",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_common",
+      "name" : "Common Functions",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_core",
+      "name" : "core",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_main_init",
+      "name" : "sl main Init",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_main_memory_init",
+      "name" : "sl_main Setup",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sl_main_process_action",
+      "name" : "sl_main Process Action",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sleeptimer",
+      "name" : "Sleep Timer",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:sleeptimer_cortexm",
+      "name" : "Sleep Timer Cortex-M Architecture Support",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:status",
+      "name" : "Status Codes Definitions",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.simplicity_sdk:2026.6.1:toolchain_variant_arm",
+      "name" : "Toolchain for ARM",
+      "version" : "2026.6.1",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    } ]
+  }, {
+    "scope" : "required",
+    "type" : "library",
+    "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1",
+    "name" : "Wiseconnect",
+    "version" : "4.1.1",
+    "components" : [ {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:SIWG917M111MGTBA",
+      "name" : "SIWG917M111MGTBA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:brd2605a",
+      "name" : "BRD2605A",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:i2s_instance",
+      "name" : "I2S",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:psram_aps6404l_sqh",
+      "name" : "APS6404L_SQH PSRAM Device",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:psram_core",
+      "name" : "PSRAM Core",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_memory_default_config",
+      "name" : "Default RAM Memory Configuration",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_si91x_led_917",
+      "name" : "LED",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sleeptimer_si91x",
+      "name" : "Sleep Timer",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:syscalls",
+      "name" : "System Calls",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_psram_linker",
+      "name" : "Toolchain support for PSRAM Linker",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:board_configuration_headers",
+      "name" : "Board Configuration Header Files",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:brd2605a_config",
+      "name" : "brd2605a config",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_common_driver",
+      "name" : "CMSIS COMMON DRIVER",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_driver_headers",
+      "name" : "CMSIS Driver Header Files",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Apache-2.0"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_peripheral_headers",
+      "name" : "CMSIS Peripheral Header Files",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA AND Apache-2.0"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_sai",
+      "name" : "CMSIS SAI",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Apache-2.0 AND Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_udma",
+      "name" : "CMSIS UDMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA AND Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_usart",
+      "name" : "CMSIS USART",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Apache-2.0 AND Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:cmsis_usart_driver",
+      "name" : "CMSIS USART DRIVER",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:external_flash_none",
+      "name" : "No External Flash",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:external_psram_8mb",
+      "name" : "8MB PSRAM (External)",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:freertos_config",
+      "name" : "FreeRTOS Configuration",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MIT"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:opn_config",
+      "name" : "opn config",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_clks",
+      "name" : "ROM DRIVER CLOCK",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_crc",
+      "name" : "ROM DRIVER CRC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_egpio",
+      "name" : "ROM DRIVER EGPIO",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_gpdma",
+      "name" : "ROM DRIVER GPDMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_headers",
+      "name" : "ROM Driver Headers",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_packing",
+      "name" : "ROM DRIVER PACKING",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_qspi",
+      "name" : "ROM DRIVER QSPI",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_romtable",
+      "name" : "ROM TABLE",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_romtable_headers",
+      "name" : "ROM Table Header",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_timer",
+      "name" : "ROM DRIVER TIMER",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_udma",
+      "name" : "ROM DRIVER UDMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_udma_wrapper",
+      "name" : "ROM DRIVER UDMA WRAPPER",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:romdriver_ulpss",
+      "name" : "ROM DRIVER ULPSS",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_adc",
+      "name" : "ADC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_aux_reference_volt_config",
+      "name" : "AUX REFERENCE VOLT",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_board",
+      "name" : "SoC Board Configurations",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA AND Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_chip",
+      "name" : "Core",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_clock_update",
+      "name" : "CLOCK UPDATE",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_crc",
+      "name" : "CRC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_dac",
+      "name" : "DAC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_dcache",
+      "name" : "D_CACHE",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_egpio",
+      "name" : "EGPIO",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_gpdma",
+      "name" : "GPDMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_headers",
+      "name" : "RSI Peripheral Headers",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_i2s",
+      "name" : "I2S",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_opamp",
+      "name" : "OPAMP",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_qspi",
+      "name" : "QSPI",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_sysrtc",
+      "name" : "SYSRTC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_timers",
+      "name" : "TIMERS API",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_udma",
+      "name" : "UDMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_udma_wrapper",
+      "name" : "UDMA WRAPPER",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_usart",
+      "name" : "USART",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:rsilib_userconfig",
+      "name" : "RSI User Configuration",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_common_flash",
+      "name" : "Common Flash Component",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_debug",
+      "name" : "Debug Unit",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_device_init_nvic",
+      "name" : "NVIC Interrupt Priorities Configuration for FreeRTOS",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_log_none",
+      "name" : "Log None",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_mem_config_1",
+      "name" : "MEMORY_MCU_BASIC_WIRELESS_ADVANCED",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:si91x_stack_size_configuration",
+      "name" : "Stack Size Configuration",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_adc",
+      "name" : "ADC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_bjt_temperature_sensor",
+      "name" : "BJT Temperature Sensor",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_clock_manager",
+      "name" : "Clock Manager",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_dma",
+      "name" : "DMA",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_gpio",
+      "name" : "GPIO",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_gpio_peripheral",
+      "name" : "SL GPIO Peripheral",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_i2s",
+      "name" : "I2S",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_si91x_agents_md",
+      "name" : "AGENTS.md (Generative AI project context)",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:sl_si91x_mcu",
+      "name" : "MCU Subsystem",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_bod",
+      "name" : "BOD",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_headers",
+      "name" : "System-Level API Headers",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_ipmu",
+      "name" : "IPMU",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_pll",
+      "name" : "PLL",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_reg_spi",
+      "name" : "REG SPI",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_rtc",
+      "name" : "RTC",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_temp_sensor",
+      "name" : "TEMPERATURE SENSOR",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_time_period",
+      "name" : "TIME PERIOD",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:systemlevel_ulpss_clk",
+      "name" : "ULPSS CLOCK",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:udma_linker_config",
+      "name" : "UDMA Linker Configuration",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_gcc_standard",
+      "name" : "GCC Toolchain Standard Linker",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "silabs.wiseconnect3_sdk:4.1.1:wiseconnect_toolchain_plugin",
+      "name" : "GCC Toolchain Support",
+      "version" : "4.1.1",
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    } ]
+  } ]
+}

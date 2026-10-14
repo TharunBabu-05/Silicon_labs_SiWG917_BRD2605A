@@ -1,0 +1,507 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: aiml_soc_voice_control_light_siwg917
+label: aiml_soc_voice_control_light_siwg917
+description: |
+  This application uses TensorFlow Lite for Microcontrollers to detect the spoken
+  words "on" and "off" from audio data recorded on the microphone.
+  The detected keywords are used to control an LED on the board.
+category: AI/ML Application
+filter:
+- name: Capability
+  value:
+  - Machine Learning
+- name: Device Type
+  value:
+  - SoC
+- name: MCU
+  value:
+  - 32-bit MCU
+- name: Project Difficulty
+  value:
+  - Advanced
+package: aiml_app
+quality: production
+readme:
+- path: readme.md
+source:
+- path: voice_control_light.cc
+- path: recognize_commands.cc
+- path: app.cc
+- path: config/audio_classifier_config.cc
+include:
+- path: .
+  file_list:
+  - path: app.h
+  - path: voice_control_light.h
+  - path: recognize_commands.h
+  - path: led_helper.hpp
+  - path: mic_helper.hpp
+sdk:
+  vendor: silabs
+  id: simplicity_sdk
+  version: 2026.6.1
+toolchain_settings:
+- value: -Wno-unused-parameter
+  option: gcc_compiler_option
+- value: -Wall -Werror
+  option: gcc_compiler_option
+- value: -u _printf_float
+  option: gcc_linker_option
+- value: -Wall -Werror
+  option: llvm_compiler_option
+- value: -u _printf_float
+  option: llvm_linker_option
+- value: -Wno-implicit-exception-spec-mismatch
+  option: llvm_compiler_option
+- value: -mfp16-format=ieee
+  option: gcc_compiler_option
+- value: -Wno-unused-parameter
+  option: gcc_compiler_option
+component:
+- package: aiml
+  instance:
+  - keyword_spotting_on_off_v3
+  vendor: silabs
+  id: fe_audio
+- package: aiml
+  instance:
+  - keyword_spotting_on_off_v3
+  vendor: silabs
+  id: ml_model
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_dsp
+- package: simplicity_sdk
+  vendor: silabs
+  id: cpp_support
+- package: simplicity_sdk
+  vendor: silabs
+  id: emlib_common
+- package: simplicity_sdk
+  vendor: silabs
+  id: freertos
+- package: simplicity_sdk
+  vendor: silabs
+  id: freertos_heap_4
+- package: simplicity_sdk
+  instance:
+  - vcom
+  vendor: silabs
+  id: iostream_uart_si91x
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: SIWG917M111MGTBA
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: brd2605a
+- package: wiseconnect3_sdk
+  instance:
+  - i2s0
+  vendor: silabs
+  id: i2s_instance
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: iostream_si91x
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: psram_aps6404l_sqh
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: psram_core
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_memory_default_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_freertos_heap_4_redirect
+- package: wiseconnect3_sdk
+  instance:
+  - led0
+  vendor: silabs
+  id: sl_si91x_led_917
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sleeptimer_si91x
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: syscalls
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wiseconnect_toolchain_psram_linker
+autoselected_components:
+- package: aiml
+  vendor: silabs
+  id: mic_driver_si91x
+- package: aiml
+  vendor: silabs
+  id: ml_cmsis_dsp_rfft_q15
+- package: aiml
+  vendor: silabs
+  id: ml_compiler
+- package: aiml
+  vendor: silabs
+  id: tensorflow_lite_micro
+- package: simplicity_sdk
+  vendor: silabs
+  id: agents_md
+- package: simplicity_sdk
+  vendor: silabs
+  id: atomic
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_common
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_core
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_os2_ext_task_register
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_rtos2_headers
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_rtos2_init
+- package: simplicity_sdk
+  vendor: silabs
+  id: cmsis_rtos2_tick
+- package: simplicity_sdk
+  vendor: silabs
+  id: code_classification
+- package: simplicity_sdk
+  vendor: silabs
+  id: component_catalog
+- package: simplicity_sdk
+  vendor: silabs
+  id: enum
+- package: simplicity_sdk
+  vendor: silabs
+  id: event_handler
+- package: simplicity_sdk
+  vendor: silabs
+  id: freertos_kernel_cortexm
+- package: simplicity_sdk
+  vendor: silabs
+  id: iostream
+- package: simplicity_sdk
+  vendor: silabs
+  id: iostream_retarget_stdio
+- package: simplicity_sdk
+  vendor: silabs
+  id: iostream_uart_core_si91x
+- package: simplicity_sdk
+  vendor: silabs
+  id: log_none
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_assert
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_common
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_core
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main_init
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main_kernel
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main_memory_init
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main_process_action
+- package: simplicity_sdk
+  vendor: silabs
+  id: sleeptimer
+- package: simplicity_sdk
+  vendor: silabs
+  id: sleeptimer_cortexm
+- package: simplicity_sdk
+  vendor: silabs
+  id: slist
+- package: simplicity_sdk
+  vendor: silabs
+  id: status
+- package: simplicity_sdk
+  vendor: silabs
+  id: toolchain_variant_arm
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: board_configuration_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: brd2605a_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_common_driver
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_driver_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_peripheral_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_sai
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_udma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_usart
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: cmsis_usart_driver
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: external_flash_none
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: external_psram_8mb
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: freertos_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: opn_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_clks
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_crc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_egpio
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_gpdma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_packing
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_qspi
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_romtable
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_romtable_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_timer
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_udma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_udma_wrapper
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: romdriver_ulpss
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_adc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_aux_reference_volt_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_board
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_chip
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_clock_update
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_crc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_dac
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_dcache
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_egpio
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_gpdma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_i2s
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_opamp
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_qspi
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_sysrtc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_timers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_udma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_udma_wrapper
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_usart
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: rsilib_userconfig
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_common_flash
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_debug
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_device_init_nvic
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_log_none
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_mem_config_1
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_stack_size_configuration
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_adc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_bjt_temperature_sensor
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_clock_manager
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_dma
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_gpio
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_gpio_peripheral
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_i2s
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_agents_md
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_mcu
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_usart
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_usart_iostream
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_bod
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_headers
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_ipmu
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_pll
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_reg_spi
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_rtc
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_temp_sensor
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_time_period
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: systemlevel_ulpss_clk
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: udma_linker_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wiseconnect_toolchain_gcc_standard
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wiseconnect_toolchain_plugin
+define:
+- name: SUPPORT_CPLUSPLUS
+  value: '1'
+config_file:
+- path: config/audio_classifier_config.h
+- path: config/tflite/keyword_spotting_on_off_v3.tflite
+  directory: tflite
+configuration:
+- name: SL_BOARD_ENABLE_VCOM
+  value: '1'
+- name: SL_IOSTREAM_USART_VCOM_BAUDRATE
+  value: '921600'
+- name: SL_IOSTREAM_USART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+  value: '0'
+- name: SL_IOSTREAM_UART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+  value: '0'
+- name: SL_IOSTREAM_EUSART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+  value: '0'
+- name: SL_TFLITE_MICRO_ARENA_SIZE
+  value: '2048'
+- name: SL_I2S0_SCLK_PIN
+  value: '46'
+- name: SL_I2S0_WSCLK_PIN
+  value: '47'
+- name: SL_I2S0_DIN0_PIN
+  value: '48'
+- name: RTE_I2S0_DIN0_PORT_ID
+  value: '2'
+- name: RTE_I2S0_SCLK_PORT_ID
+  value: '2'
+- name: RTE_I2S0_WSCLK_PORT_ID
+  value: '2'
+ui_hints:
+  highlight:
+  - path: readme.md
+    focus: true
+sdk_extension:
+- vendor: silabs
+  id: sidewalk
+  version: 2.9.1
+- vendor: silabs
+  id: aiml
+  version: 3.0.1
+- vendor: silabs
+  id: wiseconnect3_sdk
+  version: 4.1.1
+post_build:
+- path: aiml_soc_voice_control_light_siwg917.slpb
+

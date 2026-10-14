@@ -1,0 +1,16 @@
+2026-10-14 12:21:07 - [INFO] (compiler.py:85): sml.log created by aiml/tool/compiler/compiler.py (Studio/SLC adapter).
+2026-10-14 12:21:07 - [INFO] (compiler.py:88): sml appends below.
+2026-10-14 12:21:07 - [DEBUG] (compiler.py:90): Input Directory: C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\data\tflite
+2026-10-14 12:21:07 - [INFO] (compiler.py:91): Output Directory: C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\output
+2026-10-14 12:21:07 - [INFO] (compiler.py:92): Part Number: siwg917m111mgtba
+2026-10-14 12:21:07 - [DEBUG] (compiler.py:66): found sml executable: sml_win_amd64.exe
+2026-10-14 12:21:07 - [DEBUG] (compiler.py:96): got sml executable: C:\Users\tharu\.silabs\slt\installs\conan\p\aimlcebe19bdd23e2\p\tool\compiler\sml_win_amd64.exe
+2026-10-14 12:21:07 - [DEBUG] (compiler.py:104): processing C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\data\tflite\keyword_spotting_on_off_v3.mlconf file
+2026-10-14 12:21:09 - [INFO] (compiler_cli.py:226): compile: streaming log file C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\output\sml.log
+2026-10-14 12:21:09 - [INFO] (compiler_cli_config.py:92): Using compiler config from --config: C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\data\tflite\keyword_spotting_on_off_v3.mlconf
+2026-10-14 12:21:09 - [INFO] (compiler_cli_config.py:129): is_studio: compile flags do not override merged YAML/config (omit --is-studio to apply compile overrides).
+2026-10-14 12:21:09 - [INFO] (compiler_cli_platform.py:121): compile: normalized platform 'siwg917m111mgtba' to 'siwg917'
+2026-10-14 12:21:17 - [INFO] (compile_tflite_model.py:180): Total compilation time: 8.19 seconds
+2026-10-14 12:21:18 - [INFO] (compiler_cli.py:291): compile: success
+2026-10-14 12:21:18 - [INFO] (compiler_cli.py:304): compile: wrote sl_ml_model_* helper template under C:\Users\tharu\AppData\Local\Temp\apack_aiml.mvp-compiler17802805149834823455\output
+2026-10-14 12:21:19 - [DEBUG] (compiler.py:121): sml executed with return code 0
