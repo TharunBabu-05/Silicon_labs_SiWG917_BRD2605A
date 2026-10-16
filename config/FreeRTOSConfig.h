@@ -61,7 +61,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //  <i> When SiWx91x Memory Manager Redirect is installed, 81920 bytes (80 KB) for single heap.
 //  <i> Default: 51200
 /*
- * TinyDesk and the Wi-Fi stack share the scheduler heap.  The BRD2605A has
+ * MiniFace and the Wi-Fi stack share the scheduler heap.  The BRD2605A has
  * external PSRAM, so the application owns the heap array and places it there
  * instead of exhausting the SiWG917 internal-RAM linker region.
  */

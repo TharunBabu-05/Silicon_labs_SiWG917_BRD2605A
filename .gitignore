@@ -14,8 +14,7 @@ cmake_gcc/build/
 *.rps
 *.s37
 
-# TinyDesk local build and tool state
-tinydesk/.codex/
-tinydesk/.dist/
-tinydesk/build/
-tinydesk/build-tls/
+# MiniFace local build and tool state
+miniface/.codex/
+miniface/.dist/
+miniface/build/

@@ -8,7 +8,7 @@
     "configurePresets": [
       {
         "name": "project",
-        "displayName": "Configure aiml_soc_voice_control_light_siwg917",
+        "displayName": "Configure miniface_siwg917",
         "generator": "Ninja Multi-Config",
         "binaryDir": "${sourceDir}/build",
         "toolchainFile": "${sourceDir}/toolchain.cmake",
@@ -20,10 +20,10 @@
     "buildPresets": [
       {
         "name": "default_config",
-        "displayName": "Build aiml_soc_voice_control_light_siwg917",
+        "displayName": "Build miniface_siwg917",
         "configurePreset": "project",
         "configuration": "base",
-        "targets": ["aiml_soc_voice_control_light_siwg917"]
+        "targets": ["miniface_siwg917"]
       }
     ],
     "workflowPresets": [

@@ -28,7 +28,7 @@ extern "C" {
 }
 #endif
 
-#include "tinydesk_siwg917.h"
+#include "miniface_siwg917.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -41,11 +41,35 @@ static void vcom_boot_message(const char* message) {
     (void)sl_iostream_write(sl_iostream_vcom_handle, message, std::strlen(message));
 }
 
+static volatile bool s_voice_task_started;
+
 static void voice_task(void* argument) {
     (void)argument;
-    // Signal Analyzer requests the shared dual-microphone pipeline on demand.
     voice_control_light_task();
+    taskENTER_CRITICAL();
+    s_voice_task_started = false;
+    taskEXIT_CRITICAL();
     vTaskDelete(nullptr);
+}
+
+extern "C" bool voice_control_start(void) {
+    taskENTER_CRITICAL();
+    if (s_voice_task_started) {
+        taskEXIT_CRITICAL();
+        return true;
+    }
+    s_voice_task_started = true;
+    taskEXIT_CRITICAL();
+
+    if (xTaskCreate(voice_task, "miniface_audio", 1536, nullptr, 4, nullptr) == pdPASS) {
+        return true;
+    }
+
+    taskENTER_CRITICAL();
+    s_voice_task_started = false;
+    taskEXIT_CRITICAL();
+    vcom_boot_message("MiniFace: audio task creation failed\r\n");
+    return false;
 }
 
 /*******************************************************************************
@@ -55,24 +79,20 @@ static void voice_task(void* argument) {
 extern "C" void app_init(void) {
     ml_configure_clocks_to_max_rate();
 
-    // Initialize the LEDs
     led_init();
-    vcom_boot_message("\r\nTinyDesk: application startup\r\n");
+    vcom_boot_message("\r\nMiniFace: application startup\r\n");
 
-    // The serial desktop is independent of AIML model initialization.
-    if (!tinydesk_siwg917_start()) {
-        vcom_boot_message("TinyDesk: task creation failed\r\n");
+    if (!miniface_siwg917_start()) {
+        vcom_boot_message("MiniFace: task creation failed\r\n");
         return;
     }
-    vcom_boot_message("TinyDesk: VCOM and desktop tasks created\r\n");
-    if (xTaskCreate(voice_task, "aiml", 1536, nullptr, 4, nullptr) != pdPASS) {
-        vcom_boot_message("TinyDesk: AIML task creation failed\r\n");
-    }
+    vcom_boot_message("MiniFace: VCOM and desktop tasks created\r\n");
+    vcom_boot_message("MiniFace: audio service starts when an audio app opens\r\n");
 }
 
 /*******************************************************************************
  * App ticking function.
  ******************************************************************************/
 extern "C" void app_process_action(void) {
-    // TinyDesk and AIML run in their own FreeRTOS tasks.
+    // MiniFace is driven by its own FreeRTOS task.
 }

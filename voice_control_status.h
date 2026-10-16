@@ -1,6 +1,7 @@
 #ifndef VOICE_CONTROL_STATUS_H
 #define VOICE_CONTROL_STATUS_H
 
+#include <stdbool.h>
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -24,6 +25,7 @@ typedef struct {
 } voice_control_status_t;
 
 void voice_control_get_status(voice_control_status_t *out);
+bool voice_control_start(void);
 void voice_control_request_microphones(void);
 
 #ifdef __cplusplus

@@ -30,7 +30,7 @@
 #include "sl_ml_model_keyword_spotting_on_off_v3.h"
 #include "tflite_micro_model.hpp"
 
-/* Once TinyDesk owns VCOM, direct log text would corrupt its ANSI screen. */
+/* Once MiniFace owns VCOM, direct log text would corrupt its ANSI screen. */
 #define printf(...) ((void)0)
 
 static RecognizeCommands* command_recognizer = nullptr;

@@ -5,7 +5,7 @@
 #define REQUIRED_IP_TYPE SL_IPV4
 
 /*
- * TinyDesk supplies credentials at runtime from the Network window.  These
+ * MiniFace supplies credentials at runtime from the Network window.  These
  * empty defaults only satisfy the Network Manager during its initial setup.
  */
 #define DEFAULT_WIFI_CLIENT_PROFILE \

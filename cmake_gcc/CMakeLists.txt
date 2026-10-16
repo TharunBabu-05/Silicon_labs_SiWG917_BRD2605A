@@ -3,14 +3,14 @@ cmake_minimum_required(VERSION "3.25")
 
 # Project definition
 project(
-	aiml_soc_voice_control_light_siwg917
+	miniface_siwg917
 	VERSION 1.0
 	LANGUAGES C CXX ASM
 )
 
-# Include the definition of the slc_aiml_soc_voice_control_light_siwg917 target,
+# Include the definition of the slc_miniface_siwg917 target,
 # which contains the content of the SLC project
-include(aiml_soc_voice_control_light_siwg917.cmake)
+include(miniface_siwg917.cmake)
 
 # The installed AIML generator currently stops before contributing Wi-Fi to the
 # generated CMake graph. Keep the SiWG917 Wi-Fi stack here until that generator
@@ -104,35 +104,35 @@ target_compile_definitions(slc PUBLIC
     SL_CODE_COMPONENT_SLI_SI91X_WIFI_CMD_ENGINE=sli_si91x_wifi_cmd_engine
 )
 
-add_executable(aiml_soc_voice_control_light_siwg917
-    # TinyDesk platform adapter and core engine.
-    ../tinydesk_siwg917.c
-    ../tinydesk_siwg917_network.c
-    ../tinydesk/src/draw.c
-    ../tinydesk/src/event.c
-    ../tinydesk/src/input.c
-    ../tinydesk/src/render.c
-    ../tinydesk/src/screen.c
-    ../tinydesk/src/td.c
-    ../tinydesk/src/theme.c
-    ../tinydesk/src/timer.c
-    ../tinydesk/src/utf8.c
-    ../tinydesk/src/widgets.c
-    ../tinydesk/src/wm.c
-    ../tinydesk/apps/about.c
-    ../tinydesk/apps/counter.c
-    ../tinydesk/apps/network.c
-    ../tinydesk/apps/sysmon.c
+add_executable(miniface_siwg917
+    # MiniFace platform adapter and core engine.
+    ../miniface_siwg917.c
+    ../miniface_siwg917_network.c
+    ../miniface/src/draw.c
+    ../miniface/src/event.c
+    ../miniface/src/input.c
+    ../miniface/src/render.c
+    ../miniface/src/screen.c
+    ../miniface/src/td.c
+    ../miniface/src/theme.c
+    ../miniface/src/timer.c
+    ../miniface/src/utf8.c
+    ../miniface/src/widgets.c
+    ../miniface/src/wm.c
+    ../miniface/apps/about.c
+    ../miniface/apps/counter.c
+    ../miniface/apps/network.c
+    ../miniface/apps/sysmon.c
 )
 
-target_include_directories(aiml_soc_voice_control_light_siwg917 PRIVATE
+target_include_directories(miniface_siwg917 PRIVATE
     ..
-    ../tinydesk/include
-    ../tinydesk/apps
+    ../miniface/include
+    ../miniface/apps
     ../config
 )
 
-target_compile_definitions(aiml_soc_voice_control_light_siwg917 PRIVATE
+target_compile_definitions(miniface_siwg917 PRIVATE
     TD_SIWG917_PSRAM=1
     TD_MAX_COLS=100
     TD_MAX_ROWS=30
@@ -149,42 +149,42 @@ target_compile_definitions(aiml_soc_voice_control_light_siwg917 PRIVATE
     TD_SIWG917_TRACE=1
 )
 
-target_compile_options(aiml_soc_voice_control_light_siwg917 PUBLIC
+target_compile_options(miniface_siwg917 PUBLIC
     # Set additional compiler flags here
 )
 
-target_link_options(aiml_soc_voice_control_light_siwg917 PUBLIC
+target_link_options(miniface_siwg917 PUBLIC
     # Set additional linker flags here
 )
 
 # Link with the content defined in the SLC project
-target_link_libraries(aiml_soc_voice_control_light_siwg917 PRIVATE
+target_link_libraries(miniface_siwg917 PRIVATE
     slc
     # This script comes after the generated SiWG917 memory-map script, so
-    # its .tinydesk_psram section can use the declared PSRAM region.
-    "-T${CMAKE_CURRENT_LIST_DIR}/../tinydesk_siwg917.ld"
+    # its .miniface_psram section can use the declared PSRAM region.
+    "-T${CMAKE_CURRENT_LIST_DIR}/../miniface_siwg917.ld"
 )
 
 # Include managed project content if available
-include(aiml_soc_voice_control_light_siwg917_project.cmake OPTIONAL RESULT_VARIABLE managed_project)
+include(miniface_siwg917_project.cmake OPTIONAL RESULT_VARIABLE managed_project)
 if(managed_project)
     message(STATUS "Using managed project content from ${managed_project}")
 endif()
 
 # Force the gcc linker command
-set_target_properties(aiml_soc_voice_control_light_siwg917 PROPERTIES LINKER_LANGUAGE C)
+set_target_properties(miniface_siwg917 PROPERTIES LINKER_LANGUAGE C)
 
 # Create .bin, .hex and .s37 artifacts after building the project
-add_custom_command(TARGET aiml_soc_voice_control_light_siwg917
+add_custom_command(TARGET miniface_siwg917
     POST_BUILD
-    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_SREC_CMD} "$<TARGET_FILE:aiml_soc_voice_control_light_siwg917>" "$<TARGET_FILE_DIR:aiml_soc_voice_control_light_siwg917>/$<TARGET_FILE_BASE_NAME:aiml_soc_voice_control_light_siwg917>.s37"
-    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_IHEX_CMD} "$<TARGET_FILE:aiml_soc_voice_control_light_siwg917>" "$<TARGET_FILE_DIR:aiml_soc_voice_control_light_siwg917>/$<TARGET_FILE_BASE_NAME:aiml_soc_voice_control_light_siwg917>.hex"
-    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_BIN_CMD}  "$<TARGET_FILE:aiml_soc_voice_control_light_siwg917>" "$<TARGET_FILE_DIR:aiml_soc_voice_control_light_siwg917>/$<TARGET_FILE_BASE_NAME:aiml_soc_voice_control_light_siwg917>.bin" 
+    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_SREC_CMD} "$<TARGET_FILE:miniface_siwg917>" "$<TARGET_FILE_DIR:miniface_siwg917>/$<TARGET_FILE_BASE_NAME:miniface_siwg917>.s37"
+    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_IHEX_CMD} "$<TARGET_FILE:miniface_siwg917>" "$<TARGET_FILE_DIR:miniface_siwg917>/$<TARGET_FILE_BASE_NAME:miniface_siwg917>.hex"
+    COMMAND ${CMAKE_OBJCOPY} ${OBJCOPY_BIN_CMD}  "$<TARGET_FILE:miniface_siwg917>" "$<TARGET_FILE_DIR:miniface_siwg917>/$<TARGET_FILE_BASE_NAME:miniface_siwg917>.bin"
 )
 
 # Run post-build pipeline to perform additional post-processing
 if(post_build_command)
-add_custom_command(TARGET aiml_soc_voice_control_light_siwg917
+add_custom_command(TARGET miniface_siwg917
     POST_BUILD
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/..
     COMMAND ${post_build_command}
