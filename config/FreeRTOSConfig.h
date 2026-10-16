@@ -60,8 +60,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //  <i> Heap memory size in bytes.
 //  <i> When SiWx91x Memory Manager Redirect is installed, 81920 bytes (80 KB) for single heap.
 //  <i> Default: 51200
-/* Keep the scheduler heap in the SiWG917 internal-RAM linker region. */
-#define configTOTAL_HEAP_SIZE 51200
+/*
+ * TinyDesk and the Wi-Fi stack share the scheduler heap.  The BRD2605A has
+ * external PSRAM, so the application owns the heap array and places it there
+ * instead of exhausting the SiWG917 internal-RAM linker region.
+ */
+#define configTOTAL_HEAP_SIZE 81920
+#define configAPPLICATION_ALLOCATED_HEAP 1
 
 //  <o>Kernel tick frequency [Hz] <0-0xFFFFFFFF>
 //  <i> Kernel tick rate in Hz.

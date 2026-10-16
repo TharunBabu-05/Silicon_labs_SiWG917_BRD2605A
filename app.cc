@@ -28,7 +28,6 @@ extern "C" {
 }
 #endif
 
-#include "mic_helper.hpp"
 #include "tinydesk_siwg917.h"
 
 #include "FreeRTOS.h"
@@ -44,8 +43,7 @@ static void vcom_boot_message(const char* message) {
 
 static void voice_task(void* argument) {
     (void)argument;
-    // The desktop must have a chance to render before microphone/I2S setup.
-    enable_microphone();
+    // Signal Analyzer requests the shared dual-microphone pipeline on demand.
     voice_control_light_task();
     vTaskDelete(nullptr);
 }

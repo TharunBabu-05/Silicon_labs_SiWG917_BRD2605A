@@ -17,10 +17,13 @@
 
 #include "voice_control_light.h"
 #include "voice_control_status.h"
+#include "mic_helper.hpp"
 
 #include <cinttypes>
 #include <new>
 
+#include "FreeRTOS.h"
+#include "task.h"
 #include "sl_fe_audio_instances.h"
 #include "sl_fe_audio_si91x.h"
 #include "recognize_commands.h"
@@ -44,21 +47,101 @@ static const char* volatile voice_label = "-";
 static volatile uint8_t voice_score = 0;
 static volatile uint32_t voice_inferences = 0;
 static volatile uint32_t voice_commands = 0;
+static volatile int16_t voice_baseline = 0;
+static volatile uint8_t voice_level_percent = 0;
+static volatile uint8_t voice_peak_percent = 0;
+static volatile uint8_t voice_microphones_active = 0;
+static volatile uint32_t voice_audio_samples = 0;
+static volatile int16_t voice_waveform[VOICE_CONTROL_WAVEFORM_SAMPLES];
+static volatile bool voice_microphones_requested = false;
+
+static uint8_t percent_from_pcm(int32_t value) {
+    if (value <= 0) {
+        return 0;
+    }
+    if (value >= 32767) {
+        return 100;
+    }
+    return static_cast<uint8_t>((value * 100) / 32767);
+}
+
+/* The frontend calls this after every DMA chunk. Keep it integer-only and
+ * bounded: it supplies the desktop with a small snapshot, not a second stream. */
+static void capture_audio_snapshot(void*, const int16_t* data, uint32_t frames) {
+    if (data == nullptr || frames == 0u) {
+        return;
+    }
+
+    int64_t sum = 0;
+    for (uint32_t i = 0; i < frames; ++i) {
+        sum += data[i];
+    }
+    const int32_t baseline = static_cast<int32_t>(sum / static_cast<int64_t>(frames));
+
+    uint64_t absolute_sum = 0u;
+    int32_t peak = 0;
+    int16_t waveform[VOICE_CONTROL_WAVEFORM_SAMPLES];
+    for (uint32_t i = 0; i < frames; ++i) {
+        int32_t centered = static_cast<int32_t>(data[i]) - baseline;
+        int32_t magnitude = centered < 0 ? -centered : centered;
+        absolute_sum += static_cast<uint32_t>(magnitude);
+        if (magnitude > peak) {
+            peak = magnitude;
+        }
+    }
+    for (uint32_t i = 0; i < VOICE_CONTROL_WAVEFORM_SAMPLES; ++i) {
+        const uint32_t index = (i * (frames - 1u)) / (VOICE_CONTROL_WAVEFORM_SAMPLES - 1u);
+        waveform[i] = static_cast<int16_t>(static_cast<int32_t>(data[index]) - baseline);
+    }
+
+    taskENTER_CRITICAL();
+    for (uint32_t i = 0; i < VOICE_CONTROL_WAVEFORM_SAMPLES; ++i) {
+        voice_waveform[i] = waveform[i];
+    }
+    voice_baseline = static_cast<int16_t>(baseline);
+    voice_level_percent = percent_from_pcm(static_cast<int32_t>(absolute_sum / frames));
+    voice_peak_percent = percent_from_pcm(peak);
+    voice_audio_samples += frames;
+    taskEXIT_CRITICAL();
+}
 
 extern "C" void voice_control_get_status(voice_control_status_t* out) {
     if (out == nullptr) {
         return;
     }
+    taskENTER_CRITICAL();
     out->state = voice_state;
     out->label = voice_label;
     out->score = voice_score;
     out->inferences = voice_inferences;
     out->commands = voice_commands;
+    out->baseline = voice_baseline;
+    out->level_percent = voice_level_percent;
+    out->peak_percent = voice_peak_percent;
+    out->microphones_active = voice_microphones_active;
+    out->audio_samples = voice_audio_samples;
+    for (uint32_t i = 0; i < VOICE_CONTROL_WAVEFORM_SAMPLES; ++i) {
+        out->waveform[i] = voice_waveform[i];
+    }
+    taskEXIT_CRITICAL();
+}
+
+extern "C" void voice_control_request_microphones(void) {
+    taskENTER_CRITICAL();
+    voice_microphones_requested = true;
+    taskEXIT_CRITICAL();
 }
 
 void voice_control_light_task() {
     uint32_t prev_loop_timestamp = 0;
     led_turn_off(DETECTION_ON);
+    voice_state = "mic standby";
+    while (!voice_microphones_requested) {
+        sl_sleeptimer_delay_millisecond(20);
+    }
+    voice_state = "starting microphones";
+    enable_microphone();
+    voice_microphones_active = 1;
     voice_state = "loading model";
     printf("Starting Voice Control Light Application\n");
 
@@ -349,6 +432,7 @@ sl_status_t load_model() {
         printf("Failed to init audio feature generator\n");
         return SL_STATUS_FAIL;
     }
+    (void)sl_ml_audio_feature_generation_set_mic_callback(capture_audio_snapshot, nullptr);
 
     // Instantiate CommandRecognizer
     command_recognizer = new (command_recognizer_instance_buffer) RecognizeCommands(SMOOTHING_WINDOW_DURATION_MS,

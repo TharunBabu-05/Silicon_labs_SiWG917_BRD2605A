@@ -1,6 +1,7 @@
 #include "tinydesk_siwg917.h"
 
 #include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "FreeRTOS.h"
@@ -12,9 +13,14 @@
 #include "led_helper.hpp"
 #include "tinydesk/td.h"
 #include "td_apps.h"
+#include "tinydesk_siwg917_network.h"
 #include "voice_control_status.h"
 
 #define TD_RX_RING_SIZE 512u
+#define SIGNAL_SCOPE_MIN_SCALE 512
+
+/* heap_4.c references this application-owned FreeRTOS heap. */
+uint8_t ucHeap[configTOTAL_HEAP_SIZE] __attribute__((section(".tinydesk_psram"), aligned(8)));
 
 static uint8_t s_rx_ring[TD_RX_RING_SIZE];
 static volatile unsigned int s_rx_head;
@@ -30,6 +36,7 @@ void tinydesk_siwg917_trace(const char *message)
 static td_window_t *s_status_window;
 static td_window_t *s_aiml_window;
 static td_window_t *s_led_window;
+static td_window_t *s_signal_window;
 static td_widget_t *s_status_uptime;
 static td_widget_t *s_status_heap;
 static td_widget_t *s_status_link;
@@ -37,6 +44,7 @@ static td_widget_t *s_aiml_state;
 static td_widget_t *s_aiml_label;
 static td_widget_t *s_aiml_counts;
 static td_widget_t *s_led_state;
+static voice_control_status_t s_signal_snapshot;
 
 static void rx_push(uint8_t byte)
 {
@@ -116,7 +124,7 @@ static int sys_cpu_mhz(void)
   return (int)(SystemCoreClock / 1000000u);
 }
 
-static const td_sysinfo_t s_sysinfo = {
+static td_sysinfo_t s_sysinfo = {
   .platform = "SiWG917 BRD2605A",
   .chip = "SiWG917 wireless SoC",
   .sdk_version = "Simplicity SDK 2026.6.1",
@@ -177,6 +185,85 @@ static void on_led_close(td_window_t *window)
 {
   (void)window;
   s_led_window = NULL;
+}
+
+static int clamp_int(int value, int low, int high)
+{
+  if (value < low) {
+    return low;
+  }
+  if (value > high) {
+    return high;
+  }
+  return value;
+}
+
+static void draw_signal_scope(td_window_t *window, int width, int height)
+{
+  (void)window;
+  const td_theme_t *theme = td_theme();
+  const int graph_x = 1;
+  const int graph_y = 3;
+  const int graph_width = width - 2;
+  const int graph_height = height - 6;
+  char line[80];
+
+  snprintf(line, sizeof(line), "Level %3u%%  Peak %3u%%  Base %+6d  Samples %lu",
+           (unsigned)s_signal_snapshot.level_percent, (unsigned)s_signal_snapshot.peak_percent,
+           (int)s_signal_snapshot.baseline, (unsigned long)s_signal_snapshot.audio_samples);
+  td_text(1, 0, line, theme->win_fg, theme->win_bg, TD_BOLD);
+  if (s_signal_snapshot.microphones_active != 0u) {
+    td_text(1, 1, "Dual microphones powered; live PCM from the shared AIML stream", theme->dim, theme->win_bg, 0);
+  } else {
+    td_text(1, 1, "Starting the shared dual-microphone pipeline...", theme->accent, theme->win_bg, TD_BOLD);
+  }
+
+  if (graph_width < 6 || graph_height < 5) {
+    return;
+  }
+
+  td_box(td_rect(graph_x, graph_y, graph_width, graph_height), TD_BOX_SINGLE, theme->frame_fg, theme->win_bg);
+  const int plot_x = graph_x + 1;
+  const int plot_y = graph_y + 1;
+  const int plot_width = graph_width - 2;
+  const int plot_height = graph_height - 2;
+  const int mid_y = plot_y + plot_height / 2;
+
+  for (int x = 0; x < plot_width; ++x) {
+    td_putc(plot_x + x, mid_y, '-', theme->dim, theme->win_bg, 0);
+  }
+
+  int scale = SIGNAL_SCOPE_MIN_SCALE;
+  for (uint32_t i = 0; i < VOICE_CONTROL_WAVEFORM_SAMPLES; ++i) {
+    const int sample = (int)s_signal_snapshot.waveform[i];
+    const int magnitude = sample < 0 ? -sample : sample;
+    if (magnitude > scale) {
+      scale = magnitude;
+    }
+  }
+
+  for (uint32_t i = 0; i < VOICE_CONTROL_WAVEFORM_SAMPLES; ++i) {
+    const int x = plot_x + (int)((i * (uint32_t)(plot_width - 1)) /
+                                  (VOICE_CONTROL_WAVEFORM_SAMPLES - 1u));
+    const int offset = ((int)s_signal_snapshot.waveform[i] * (plot_height / 2)) / scale;
+    const int y = clamp_int(mid_y - offset, plot_y, plot_y + plot_height - 1);
+    td_putc(x, y, '*', theme->accent, theme->win_bg, TD_BOLD);
+  }
+
+  snprintf(line, sizeof(line), "Scale +/- %d PCM", scale);
+  td_text(2, graph_y + graph_height - 1, line, theme->dim, theme->win_bg, 0);
+}
+
+static void on_signal_tick(td_window_t *window)
+{
+  voice_control_get_status(&s_signal_snapshot);
+  td_win_invalidate(window);
+}
+
+static void on_signal_close(td_window_t *window)
+{
+  (void)window;
+  s_signal_window = NULL;
 }
 
 static void led_update(void)
@@ -275,9 +362,34 @@ static void launch_led(void)
   led_update();
 }
 
+static void launch_signal_analyzer(void)
+{
+  if (td_win_is_open(s_signal_window)) {
+    td_win_focus(s_signal_window);
+    return;
+  }
+  voice_control_request_microphones();
+  td_window_desc_t desc = {
+    .title = "Signal Strength Analyzer",
+    .rect = td_rect(-1, -1, 82, 21),
+    .flags = TD_WIN_MOVABLE | TD_WIN_RESIZABLE | TD_WIN_CLOSABLE,
+    .min_w = 44,
+    .min_h = 12,
+    .on_draw = draw_signal_scope,
+    .on_close = on_signal_close,
+    .on_tick = on_signal_tick,
+    .tick_ms = 80,
+  };
+  s_signal_window = td_win_create(&desc);
+  if (s_signal_window != NULL) {
+    on_signal_tick(s_signal_window);
+  }
+}
+
 static const td_app_t s_status_app = {"Board Status", launch_status, "[]"};
 static const td_app_t s_aiml_app = {"AIML Monitor", launch_aiml, "AI"};
 static const td_app_t s_led_app = {"LED Control", launch_led, "**"};
+static const td_app_t s_signal_app = {"Signal Analyzer", launch_signal_analyzer, "~~"};
 
 static void vcom_rx_task(void *argument)
 {
@@ -306,7 +418,9 @@ static void desktop_task(void *argument)
     td_app_register(&s_status_app);
     td_app_register(&s_aiml_app);
     td_app_register(&s_led_app);
+    td_app_register(&s_signal_app);
     td_counter_register();
+    td_network_register();
     td_sysmon_register();
     td_about_register();
     launch_status();
@@ -326,6 +440,10 @@ bool tinydesk_siwg917_start(void)
   if (xTaskCreate(vcom_rx_task, "td_vcom_rx", 512u, NULL, 5u, NULL) != pdPASS) {
     return false;
   }
+  if (!tinydesk_siwg917_network_start()) {
+    return false;
+  }
+  s_sysinfo.net = tinydesk_siwg917_network_ops();
   if (xTaskCreate(desktop_task, "tinydesk", 1536u, NULL, 6u, NULL) != pdPASS) {
     return false;
   }

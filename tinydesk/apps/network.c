@@ -141,6 +141,23 @@ static void password_answer(const char *password, void *user)
         td_widget_printf(s_msg, "Connecting to %.32s...", s_target);
 }
 
+static void manual_password_answer(const char *password, void *user)
+{
+    (void)user;
+    password_answer(password, NULL);
+}
+
+static void manual_ssid_answer(const char *ssid, void *user)
+{
+    (void)user;
+    if (ssid == NULL || ssid[0] == '\0')
+        return;
+    snprintf(s_target, sizeof(s_target), "%s", ssid);
+    char prompt[64];
+    snprintf(prompt, sizeof(prompt), "Password for %.32s (blank = open):", s_target);
+    td_passwordbox("Wi-Fi password", prompt, manual_password_answer, NULL);
+}
+
 static void do_connect(void)
 {
     const td_wifi_ap_t *ap = selected();
@@ -174,6 +191,13 @@ static void on_connect(td_widget_t *w, void *user)
     (void)w;
     (void)user;
     do_connect();
+}
+
+static void on_join(td_widget_t *w, void *user)
+{
+    (void)w;
+    (void)user;
+    td_inputbox("Join Wi-Fi", "Network name (SSID):", s_target, manual_ssid_answer, NULL);
 }
 
 static void on_disconnect(td_widget_t *w, void *user)
@@ -243,6 +267,10 @@ static void on_server(td_widget_t *w, void *user)
 static void on_close(td_window_t *win)
 {
     (void)win;
+    s_scanning = false;
+    s_ap_count = 0;
+    if (net() != NULL && net()->shutdown != NULL)
+        net()->shutdown();
     s_win = NULL;
 }
 
@@ -296,6 +324,7 @@ static void launch(void)
     td_button(s_win, 9, -1, "Connect", on_connect, NULL);
     td_button(s_win, 21, -1, "Disconnect", on_disconnect, NULL);
     td_button(s_win, 36, -1, "Forget", on_forget, NULL);
+    td_button(s_win, 46, -1, "Join...", on_join, NULL);
     td_widget_focus(s_list);
     update_status();
     start_scan();

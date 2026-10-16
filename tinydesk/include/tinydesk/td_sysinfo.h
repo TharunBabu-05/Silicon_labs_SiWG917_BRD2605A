@@ -83,6 +83,8 @@ typedef struct
     /* Forget a saved network; false (with a status message) when the
      * current user may not. */
     bool (*forget)(const char *ssid);
+    /* Release transient radio/client resources when Network closes. */
+    void (*shutdown)(void);
 
     /* Servers (optional): which = TD_SERVER_SSH or TD_SERVER_FTP.
      * server_status returns true while running; server_set works in the

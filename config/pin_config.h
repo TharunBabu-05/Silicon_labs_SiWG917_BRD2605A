@@ -2,12 +2,56 @@
 #define PIN_CONFIG_H
 
 // $[USART0]
+// USART0 TX on GPIO_30
+#ifndef USART0_TX_PORT                          
+#define USART0_TX_PORT                           HP
+#endif
+#ifndef USART0_TX_PIN                           
+#define USART0_TX_PIN                            30
+#endif
+#ifndef USART0_TX_LOC                           
+#define USART0_TX_LOC                            5
+#endif
+
+// USART0 RX on GPIO_29
+#ifndef USART0_RX_PORT                          
+#define USART0_RX_PORT                           HP
+#endif
+#ifndef USART0_RX_PIN                           
+#define USART0_RX_PIN                            29
+#endif
+#ifndef USART0_RX_LOC                           
+#define USART0_RX_LOC                            10
+#endif
+
 // [USART0]$
 
 // $[UART1]
 // [UART1]$
 
 // $[ULP_UART]
+// ULP_UART TX on ULP_GPIO_11/GPIO_75
+#ifndef ULP_UART_TX_PORT                        
+#define ULP_UART_TX_PORT                         ULP
+#endif
+#ifndef ULP_UART_TX_PIN                         
+#define ULP_UART_TX_PIN                          11
+#endif
+#ifndef ULP_UART_TX_LOC                         
+#define ULP_UART_TX_LOC                          1
+#endif
+
+// ULP_UART RX on ULP_GPIO_9/GPIO_73
+#ifndef ULP_UART_RX_PORT                        
+#define ULP_UART_RX_PORT                         ULP
+#endif
+#ifndef ULP_UART_RX_PIN                         
+#define ULP_UART_RX_PIN                          9
+#endif
+#ifndef ULP_UART_RX_LOC                         
+#define ULP_UART_RX_LOC                          3
+#endif
+
 // [ULP_UART]$
 
 // $[I2C0]
@@ -32,6 +76,50 @@
 // [GSPI_MASTER]$
 
 // $[I2S0]
+// I2S0 SCLK on GPIO_46
+#ifndef I2S0_SCLK_PORT                          
+#define I2S0_SCLK_PORT                           HP
+#endif
+#ifndef I2S0_SCLK_PIN                           
+#define I2S0_SCLK_PIN                            46
+#endif
+#ifndef I2S0_SCLK_LOC                           
+#define I2S0_SCLK_LOC                            2
+#endif
+
+// I2S0 WSCLK on GPIO_47
+#ifndef I2S0_WSCLK_PORT                         
+#define I2S0_WSCLK_PORT                          HP
+#endif
+#ifndef I2S0_WSCLK_PIN                          
+#define I2S0_WSCLK_PIN                           47
+#endif
+#ifndef I2S0_WSCLK_LOC                          
+#define I2S0_WSCLK_LOC                           6
+#endif
+
+// I2S0 DOUT0 on GPIO_28
+#ifndef I2S0_DOUT0_PORT                         
+#define I2S0_DOUT0_PORT                          HP
+#endif
+#ifndef I2S0_DOUT0_PIN                          
+#define I2S0_DOUT0_PIN                           28
+#endif
+#ifndef I2S0_DOUT0_LOC                          
+#define I2S0_DOUT0_LOC                           9
+#endif
+
+// I2S0 DIN0 on GPIO_48
+#ifndef I2S0_DIN0_PORT                          
+#define I2S0_DIN0_PORT                           HP
+#endif
+#ifndef I2S0_DIN0_PIN                           
+#define I2S0_DIN0_PIN                            48
+#endif
+#ifndef I2S0_DIN0_LOC                           
+#define I2S0_DIN0_LOC                            14
+#endif
+
 // [I2S0]$
 
 // $[ULP_I2S]

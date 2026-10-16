@@ -96,6 +96,9 @@ component:
   id: SIWG917M111MGTBA
 - package: wiseconnect3_sdk
   vendor: silabs
+  id: basic_network_config_manager
+- package: wiseconnect3_sdk
+  vendor: silabs
   id: brd2605a
 - package: wiseconnect3_sdk
   instance:
@@ -105,6 +108,9 @@ component:
 - package: wiseconnect3_sdk
   vendor: silabs
   id: iostream_si91x
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: network_manager
 - package: wiseconnect3_sdk
   vendor: silabs
   id: psram_aps6404l_sqh
@@ -118,6 +124,9 @@ component:
   vendor: silabs
   id: sl_si91x_freertos_heap_4_redirect
 - package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_internal_stack
+- package: wiseconnect3_sdk
   instance:
   - led0
   vendor: silabs
@@ -128,6 +137,12 @@ component:
 - package: wiseconnect3_sdk
   vendor: silabs
   id: syscalls
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wifi_resources
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wiseconnect_common
 - package: wiseconnect3_sdk
   vendor: silabs
   id: wiseconnect_toolchain_psram_linker
@@ -150,6 +165,9 @@ autoselected_components:
 - package: simplicity_sdk
   vendor: silabs
   id: atomic
+- package: simplicity_sdk
+  vendor: silabs
+  id: bit
 - package: simplicity_sdk
   vendor: silabs
   id: cmsis_common
@@ -176,6 +194,9 @@ autoselected_components:
   id: component_catalog
 - package: simplicity_sdk
   vendor: silabs
+  id: emlib_core
+- package: simplicity_sdk
+  vendor: silabs
   id: enum
 - package: simplicity_sdk
   vendor: silabs
@@ -195,6 +216,9 @@ autoselected_components:
 - package: simplicity_sdk
   vendor: silabs
   id: log_none
+- package: simplicity_sdk
+  vendor: silabs
+  id: mem_pool
 - package: simplicity_sdk
   vendor: silabs
   id: sl_assert
@@ -218,6 +242,9 @@ autoselected_components:
   id: sl_main_process_action
 - package: simplicity_sdk
   vendor: silabs
+  id: sl_string
+- package: simplicity_sdk
+  vendor: silabs
   id: sleeptimer
 - package: simplicity_sdk
   vendor: silabs
@@ -233,10 +260,16 @@ autoselected_components:
   id: toolchain_variant_arm
 - package: wiseconnect3_sdk
   vendor: silabs
+  id: basic_credential_manager
+- package: wiseconnect3_sdk
+  vendor: silabs
   id: board_configuration_headers
 - package: wiseconnect3_sdk
   vendor: silabs
   id: brd2605a_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: bsd_socket_api
 - package: wiseconnect3_sdk
   vendor: silabs
   id: cmsis_common_driver
@@ -267,6 +300,9 @@ autoselected_components:
 - package: wiseconnect3_sdk
   vendor: silabs
   id: freertos_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: malloc_thread_safety
 - package: wiseconnect3_sdk
   vendor: silabs
   id: opn_config
@@ -413,13 +449,52 @@ autoselected_components:
   id: sl_si91x_agents_md
 - package: wiseconnect3_sdk
   vendor: silabs
+  id: sl_si91x_errno
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_fwup
+- package: wiseconnect3_sdk
+  vendor: silabs
   id: sl_si91x_mcu
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_socket
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sl_si91x_wireless
 - package: wiseconnect3_sdk
   vendor: silabs
   id: sl_usart
 - package: wiseconnect3_sdk
   vendor: silabs
   id: sl_usart_iostream
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_buffer_manager
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_command_engine
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_event_engine
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_hal_si91x
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_queue_manager
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_routing_utility
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_si91x_wifi_command_engine
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_si91x_wifi_event_handler
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: sli_wifi
 - package: wiseconnect3_sdk
   vendor: silabs
   id: systemlevel_bod
@@ -450,6 +525,9 @@ autoselected_components:
 - package: wiseconnect3_sdk
   vendor: silabs
   id: udma_linker_config
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: wifi
 - package: wiseconnect3_sdk
   vendor: silabs
   id: wiseconnect_toolchain_gcc_standard
@@ -494,11 +572,11 @@ ui_hints:
     focus: true
 sdk_extension:
 - vendor: silabs
-  id: sidewalk
-  version: 2.9.1
-- vendor: silabs
   id: aiml
   version: 3.0.1
+- vendor: silabs
+  id: sidewalk
+  version: 2.9.1
 - vendor: silabs
   id: wiseconnect3_sdk
   version: 4.1.1

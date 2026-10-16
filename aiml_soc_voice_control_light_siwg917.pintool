@@ -18,6 +18,18 @@
     <property object="PORTIO" propertyId="portio.i2s0.location.dout0" value="9"/>
     <property object="PORTIO" propertyId="portio.i2s0.location.sclk" value="2"/>
     <property object="PORTIO" propertyId="portio.i2s0.location.wsclk" value="6"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.enable.rx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.enable.tx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.location.rx" value="3"/>
+    <property object="PORTIO" propertyId="portio.ulp_uart.location.tx" value="1"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.rx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.tx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.location.rx" value="10"/>
+    <property object="PORTIO" propertyId="portio.usart0.location.tx" value="5"/>
+    <property object="ULP_UART" propertyId="ABModule.selectedRequirement" value="ulp_uart%T%SL_SI91X_IOSTREAM%T%sl_iostream_usart_vcom_config.h"/>
+    <property object="ULP_UART" propertyId="ABPeripheral.included" value="true"/>
+    <property object="USART0" propertyId="ABModule.selectedRequirement" value="usart0%T%SL_USART0%T%sl_si91x_usart_common_config.h"/>
+    <property object="USART0" propertyId="ABPeripheral.included" value="true"/>
   </mode>
   <modeTransition>
     <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>
